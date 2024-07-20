@@ -37,11 +37,32 @@ console.log('unshift',arr)
 arr.pop();
 console.log('poped array',arr);
 arr.shift();
-console.log('unsshifted array',arr)
+console.log('unsshifted array',arr);
 
 // splice
 
-arr.splice(1,3);
-console.log('splice arrayu,'arr);
 
-arr.splice('')
+
+
+
+// loop
+for(let i = 0; i < 10; i++) {
+    console.log('hello world');
+}
+
+let i = 0;
+while(i<10){
+    console.log('hi sajan');
+    i++
+}
+
+{
+
+let str = '';
+for(let i = 0; i<10; i++){
+    for(let j = 0; j<i; j++){
+        str = str + "*";
+    }
+    // console.log(str)
+}
+}
