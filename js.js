@@ -66,3 +66,52 @@ for(let i = 0; i<10; i++){
     // console.log(str)
 }
 }
+
+
+
+// functions
+
+{
+    // Named functions
+    function func1(){
+        var sum;
+        sum=10+20;
+        console.log(sum)
+    }
+    func1();
+}
+
+{
+    // Anonymous function
+    
+
+     let func2 = function(){
+        console.log('this is anonymous function',)
+        
+    }
+    func2();
+}
+
+{
+    // arrow function
+
+    const fun3=()=>{
+        console.log('this is arrow function')
+    }
+    fun3();
+}
+
+{
+
+    // function with arguments and parameters
+ function func4 (a,b,c){
+    console.log('a  :',a);
+    console.log('b :',b)
+    console.log('c :',c)
+
+
+}
+func4(10,20,30);
+}
+
+
