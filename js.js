@@ -115,3 +115,53 @@ func4(10,20,30);
 }
 
 
+
+// call by value
+
+{
+    let a = 10;
+    console.log(a)
+    function updateValue(a){
+        a=20;
+        console.log(a)
+        
+    }
+    updateValue(a);
+    console.log(a)
+}
+
+
+// function by value
+{
+let arr = ['1','2','3','4'];
+function updatedValue1(arr){
+    arr[0]=100;
+
+}
+updatedValue1(arr);
+console.log(arr)
+}
+
+
+//closure
+{
+    console.log('\n\n\n')
+
+
+    function outerFunction(){
+        let outerVariable = "outer function";
+        
+        function innerFunction(){
+            
+            function innerFunction1(){
+                console.log(outerVariable);
+            }
+            return innerFunction1;
+
+        }
+       return innerFunction;
+    }
+    let result=outerFunction();
+    let result1=result();
+    result1();
+}
