@@ -165,3 +165,78 @@ console.log(arr)
     let result1=result();
     result1();
 }
+
+
+{
+    setTimeout( function(){
+        console.log('this is set time out')
+    },5000)
+    function putzero(value){
+        if(value<10){
+            console.log('0')
+        }
+        else{
+            console.log(value)
+        }
+    }
+    let dt = new Date();
+    console.log('date',dt);
+    let hour = dt.getHours();
+    console.log('hour',hour);
+    let ampm ;
+    if(hour<12){
+       console.log('am');
+    
+}
+else{
+    console.log('pm');
+}
+
+let time = document.getElementById('time')
+console.log('time',time)
+
+time.innerHTML = putzero
+}
+
+// event handling
+{
+    let btn = document.getElementById('btn');
+    console.log(btn);
+    
+    btn.addEventListener('click',function(){
+        console.log('button clicked');
+      
+    })
+
+    btn.addEventListener('mouseover',function(){
+        console.log("mouseover fired");
+    })
+
+
+    btn.addEventListener('mouseout',function(){
+        console.log('mouse out fired');
+
+    })
+
+    btn.addEventListener('keypress',function(){
+        console.log('key press fired');
+    })
+
+    btn.addEventListener('keydown',function(){
+        console.log('key down fired ...');
+    })
+
+    btn.addEventListener('keyup',function(){
+        console.log('key up fired ...');
+    })
+
+    btn.addEventListener('mousedown',function(){
+        console.log('mouse down fired');
+    })
+
+    btn.addEventListener('mouseup',function(){
+        console.log('mouse up fired');
+        
+    })
+}
+
