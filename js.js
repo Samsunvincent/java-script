@@ -167,36 +167,36 @@ while (i < 10) {
 }
 
 
-{
-    // setTimeout( function(){
-    //     console.log('this is set time out')
-    // },5000)
-    function putzero(value) {
-        if (value < 10) {
-            console.log('0')
-        }
-        else {
-            console.log(value)
-        }
-    }
-    let dt = new Date();
-    console.log('date', dt);
-    let hour = dt.getHours();
-    console.log('hour', hour);
-    let ampm;
-    if (hour < 12) {
-        console.log('am');
+// {
+//     // setTimeout( function(){
+//     //     console.log('this is set time out')
+//     // },5000)
+//     function putzero(value) {
+//         if (value < 10) {
+//             console.log('0')
+//         }
+//         else {
+//             console.log(value)
+//         }
+//     }
+//     let dt = new Date();
+//     console.log('date', dt);
+//     let hour = dt.getHours();
+//     console.log('hour', hour);
+//     let ampm;
+//     if (hour < 12) {
+//         console.log('am');
 
-    }
-    else {
-        console.log('pm');
-    }
+//     }
+//     else {
+//         console.log('pm');
+//     }
 
-    let time = document.getElementById('time')
-    console.log('time', time)
+//     let time = document.getElementById('time')
+//     console.log('time', time)
 
-    time.innerHTML = putzero
-}
+//     time.innerHTML = putzero
+// }
 
 // event handling
 // {
@@ -296,46 +296,108 @@ while (i < 10) {
 
 
 {
-class Button {
-    button;
-    constructor(content) {
-        this.button = document.createElement('button');
-        this.button.innerHTML = content;
-        document.body.appendChild(this.button);
-    }
+    class Button {
+        button;
+        constructor(content) {
+            this.button = document.createElement('button');
+            this.button.innerHTML = content;
+            document.body.appendChild(this.button);
+        }
 
-    set width(width){
-        this.button.style.width = width  + "px";
+        set width(width) {
+            this.button.style.width = width + "px";
+
+        }
+        set height(height) {
+            this.button.style.height = height + "px"
+
+        }
+        onClick(fn) {
+            this.button.onclick = fn
+        }
 
     }
-    set height(height){
-        this.button.style.height = height + "px"
-        
+    let button1 = new Button('click')
+    console.log(button1)
+    button1.width = 100;
+    button1.height = 100;
+    button1.onClick(function () {
+        console.log("button clicked")
+    })
+    class BlackButton extends Button {
+
+        constructor(content) {
+            super(content);
+            this.button.style.background = "black"
+            this.button.style.color = "white";
+
+
+        }
+        onClick(fn) {
+            this.button.onclick = function () {
+                console.log('this', this);
+                console.log('this.button', this.button)
+                this.button.style.padding = 10 + "px";
+                fn();
+            }.bind(this);
+        }
+
+
     }
-    onClick(fn){
-        this.button.onclick = fn
-    }
-  
-}
-let button = new Button('click')
-console.log(button)
-button.width = 100;
-button.height = 100;
-button.onClick(function(){
-    console.log("button clicked")
-})
-class BlackButton extends Button {
     
-    constructor(content){
-        super(content);
-        this.button.style.background = "black"
-        this.button.style.color = white;
+    let blackbutton = new BlackButton("Don't click");
+    blackbutton.onClick(function () {
+        console.log('black button clicked');
+    })
 
 
-    }
-    onClick(){
-        this.button.onclick = 
-    }
 }
+
+
+{
+    // text task
+
+    class Paragraph {
+        text;
+        constructor(content) {
+            this.text = document.createElement('p');
+            this.text.innerHTML = content;
+            document.body.appendChild(this.text);
+        }
+        set font(fontSize){
+            this.text.style.fontSize = fontSize + "px"
+        }
+       
+        onClick(fn){
+            this.text.onclick = fn;
+        }
+        onMouse(fn) {
+            this.text.onmouseover = fn;
+        }
+
+    }
+    
+    let text1 = new Paragraph("Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus rem maxime placeat modi nulla earum fuga corporis distinctio illum odio tempore perferendis qui, alias voluptatum nobis unde ipsum porro iste quaerat magnam? Tempora ipsa quos repellendus qui dolores iure alias odio, maiores ratione delectus deserunt dignissimos veniam nostrum ab? Beatae suscipit aut cumque cupiditate assumenda quia delectus nisi pariatur recusandae reprehenderit. Rem sit facilis fuga delectus. Nobis incidunt id itaque accusantium porro, libero asperiores, dicta magni similique velit voluptates! Id repudiandae ipsam vero minima in saepe sed? Quo, voluptas dolore fuga voluptates magnam perspiciatis deleniti, atque ullam sit iure nulla!");
+  
+    
+
+    text1.onClick(function(){
+        console.log("text clicked")
+        this.style.background = "black"
+        this.style.color = "white"
+        text1.font = 25;
+    })
+    text1.onMouse(function(){
+        this.style.background = "red";
+    })
+    
+
+    class paragraph1 extends Paragraph{
+        constructor(content){
+            super(content)
+            
+        }
+    }
+
 
 }
