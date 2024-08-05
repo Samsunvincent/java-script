@@ -274,9 +274,6 @@ while (i < 10) {
     class Car {
         name;
         condition;
-        constructor(name) {
-            this.name = name
-        }
         info() {
             console.log(`${this.name} is running,${this.condition}`);
         }
@@ -401,3 +398,4 @@ while (i < 10) {
 
 
 }
+
