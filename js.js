@@ -399,3 +399,52 @@ while (i < 10) {
 
 }
 
+// Asynchronous operation
+// callstack
+// event loop
+// callback Queue
+// microtask queue
+// web space environment
+
+
+
+console.log('\n\n\n\n\n\n\n\n')
+// call back queue request
+{
+    let xhr = new XMLHttpRequest();
+    console.log('xhr',xhr);
+    xhr.open('get','https://jsonplaceholder.typicode.com/users');
+    document.getElementById('btn').onclick = function(){
+        xhr.send();
+
+    }
+    xhr.onreadystatechange = function(){
+        console.log("ready state :  ",xhr.readyState);
+        if(xhr.readyState === 4){
+            console.log('status',xhr.status)
+           if(xhr.status === 200){
+            let response = xhr.response;
+            console.log('response : ',response)
+            console.log('type of response : ',typeof(response));
+
+
+            let datas = JSON.parse(response);
+            console.log('datas : ',datas)
+
+            let datacontainer = document.getElementById('data-container');
+            console.log('data container',datacontainer);
+
+            let rows = '';
+            for(let i = 0;i < datas.length;i++){
+                rows = row + `
+                <tr>
+                <td>${datas[i].name}</td>
+                <td>${datas[i].username}</td>
+                <td>${data}
+                `
+            }
+           }
+        }
+    }
+}
+
