@@ -341,7 +341,6 @@ while (i < 10) {
 
 
     }
-    
     let blackbutton = new BlackButton("Don't click");
     blackbutton.onClick(function () {
         console.log('black button clicked');
@@ -360,12 +359,10 @@ while (i < 10) {
             this.text = document.createElement('p');
             this.text.innerHTML = content;
             document.body.appendChild(this.text);
-        }
-        set font(fontSize){
+        }        set font(fontSize) {
             this.text.style.fontSize = fontSize + "px"
         }
-       
-        onClick(fn){
+        onClick(fn) {
             this.text.onclick = fn;
         }
         onMouse(fn) {
@@ -373,26 +370,21 @@ while (i < 10) {
         }
 
     }
-    
     let text1 = new Paragraph("Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus rem maxime placeat modi nulla earum fuga corporis distinctio illum odio tempore perferendis qui, alias voluptatum nobis unde ipsum porro iste quaerat magnam? Tempora ipsa quos repellendus qui dolores iure alias odio, maiores ratione delectus deserunt dignissimos veniam nostrum ab? Beatae suscipit aut cumque cupiditate assumenda quia delectus nisi pariatur recusandae reprehenderit. Rem sit facilis fuga delectus. Nobis incidunt id itaque accusantium porro, libero asperiores, dicta magni similique velit voluptates! Id repudiandae ipsam vero minima in saepe sed? Quo, voluptas dolore fuga voluptates magnam perspiciatis deleniti, atque ullam sit iure nulla!");
-  
-    
-
-    text1.onClick(function(){
+    text1.onClick(function () {
         console.log("text clicked")
         this.style.background = "black"
         this.style.color = "white"
         text1.font = 25;
     })
-    text1.onMouse(function(){
+    text1.onMouse(function () {
         this.style.background = "red";
     })
-    
 
-    class paragraph1 extends Paragraph{
-        constructor(content){
+    class paragraph1 extends Paragraph {
+        constructor(content) {
             super(content)
-            
+
         }
     }
 
@@ -412,39 +404,48 @@ console.log('\n\n\n\n\n\n\n\n')
 // call back queue request
 {
     let xhr = new XMLHttpRequest();
-    console.log('xhr',xhr);
-    xhr.open('get','https://jsonplaceholder.typicode.com/users');
-    document.getElementById('btn').onclick = function(){
+    console.log('xhr', xhr);
+    xhr.open('get', 'https://jsonplaceholder.typicode.com/users');
+    document.getElementById('btn').onclick = function () {
         xhr.send();
 
     }
-    xhr.onreadystatechange = function(){
-        console.log("ready state :  ",xhr.readyState);
-        if(xhr.readyState === 4){
-            console.log('status',xhr.status)
-           if(xhr.status === 200){
-            let response = xhr.response;
-            console.log('response : ',response)
-            console.log('type of response : ',typeof(response));
+    xhr.onreadystatechange = function () {
+        console.log("ready state :  ", xhr.readyState);
+        if (xhr.readyState === 4) {
+            console.log('status', xhr.status)
+            if (xhr.status === 200) {
+                let response = xhr.response;
+                console.log('response : ', response)
+                console.log('type of response : ', typeof (response));
 
 
-            let datas = JSON.parse(response);
-            console.log('datas : ',datas)
+                let datas = JSON.parse(response);
+                console.log('datas : ', datas)
 
-            let datacontainer = document.getElementById('data-container');
-            console.log('data container',datacontainer);
+                let datacontainer = document.getElementById('data-container');
+                console.log('data container', datacontainer);
 
-            let rows = '';
-            for(let i = 0;i < datas.length;i++){
-                rows = row + `
+                let rows = '';
+                for (let i = 0; i < datas.length; i++) {
+                    rows = rows + `
                 <tr>
                 <td>${datas[i].name}</td>
                 <td>${datas[i].username}</td>
-                <td>${data}
+                <td>${datas[i].email}</td>
+                <td>${datas[i].website}</td>
+                </tr>
+
                 `
+                }
+                console.log(("rows", rows));
+
+                datacontainer.innerHTML = rows;
             }
-           }
         }
     }
 }
+
+
+
 
