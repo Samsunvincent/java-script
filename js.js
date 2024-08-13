@@ -596,17 +596,86 @@ console.log('\n\n\n\n\n\n\n\n')
             }
         }
     }
-   function handleClick(id){
-    console.log("reached here");
-    console.log("id : ",id)
-    window.location.href = "dashboard.html"
-   } 
-   function loaduserdata(){
-    console.log("sdfghjkl")
+    function handleClick(id) {
+        console.log("reached here");
+        console.log("id : ", id)
+        window.location.href = "dashboard.html"
+    }
+    function loaduserdata() {
+        console.log("sdfghjkl")
 
 
-   }
+    }
 }
+
+
+{
+
+    let datas = [
+        {
+            id: 1,
+            name: "john",
+            age: 12,
+        },
+        {
+            id: 2,
+            name: "Doe",
+            age: 25,
+        }
+    ];
+    console.log("datas", datas);
+
+    function findUser(id) {
+        let user = datas.find(data => data.id === id);
+        return user;
+    }
+
+    let user = findUser(1);
+    console.log("user", user)
+
+    function findUser1(id) {
+        let user = datas.find(data => data.id === id);
+        setTimeout(() => {
+            return user;
+        }, 1000);
+    }
+    let user1 = findUser1(2)
+    console.log('user1', user1)
+
+
+    function findUser2(id){
+       return new Promise((resolve,reject)=>{
+        let user = datas.find(data => data.id === id);
+        setTimeout(() => {
+            if(user){
+                resolve(user);
+            }
+            else{
+                reject("user not found")
+            }
+        }, 2000);
+       })
+    
+}
+findUser2(1)
+.then((user)=>{
+    console.log("user2",user);
+})
+.catch((error)=>{
+    console.log("error from catch",error)
+})
+}
+
+
+// async functions
+
+
+
+
+
+
+
+
 
 
 
