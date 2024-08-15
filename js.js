@@ -163,9 +163,7 @@
 //     }
 //     let result = outerFunction();
 //     let result1 = result();
-//     result1();
-// }
-
+//     result1();https://github.com/Samsunvincent/java-script.git
 
 // // {
 // //     // setTimeout( function(){
@@ -237,9 +235,7 @@
 // }
 
 
-// // setter and getter
-// {
-//     class Car {
+// // setter and getterhttps://github.com/Samsunvincent/java-script.git
 //         name;
 //         condition;
 //         info() {
@@ -250,11 +246,7 @@
 //         }
 //         get Condition() {
 //             return this.condition;
-//         }
-//     }
-//     let obj1 = new Car(`ashik`);
-//     obj1.info();
-//     obj1.condition = "good condition";
+//         }https://github.com/Samsunvincent/java-script.git
 //     obj1.info();
 
 // }
@@ -553,60 +545,60 @@
 
 // console.log('\n\n\n\n\n\n\n\n')
 // // call back queue request
-// {
-//     let xhr = new XMLHttpRequest();
-//     console.log('xhr', xhr);
-//     xhr.open('get', 'https://jsonplaceholder.typicode.com/users');
-//     document.getElementById('btn').onclick = function () {
-//         xhr.send();
+{
+    let xhr = new XMLHttpRequest();
+    console.log('xhr', xhr);
+    xhr.open('get', 'https://jsonplaceholder.typicode.com/users');
+    document.getElementById('btn').onclick = function () {
+        xhr.send();
 
-//     }
-//     xhr.onreadystatechange = function () {
-//         console.log("ready state :  ", xhr.readyState);
-//         if (xhr.readyState === 4) {
-//             console.log('status', xhr.status)
-//             if (xhr.status === 200) {
-//                 let response = xhr.response;
-//                 console.log('response : ', response)
-//                 console.log('type of response : ', typeof (response));
-
-
-//                 let datas = JSON.parse(response);
-//                 console.log('datas : ', datas)
-
-//                 let datacontainer = document.getElementById('data-container');
-//                 console.log('data container', datacontainer);
-
-//                 let rows = '';
-//                 for (let i = 0; i < datas.length; i++) {
-//                     rows = rows + `
-//                 <tr>
-//                 <td>${datas[i].name}</td>
-//                 <td>${datas[i].username}</td>
-//                 <td>${datas[i].email}</td>
-//                 <td>${datas[i].website}</td>
-//                 <td><button onclick = "handleClick(${datas[i].id})">View</button></td>
-//                 </tr>
-
-//                 `
-//                 }
-//                 console.log(("rows", rows));
-
-//                 datacontainer.innerHTML = rows;
-//             }
-//         }
-//     }
-//     function handleClick(id) {
-//         console.log("reached here");
-//         console.log("id : ", id)
-//         window.location.href = "dashboard.html"
-//     }
-//     function loaduserdata() {
-//         console.log("sdfghjkl")
+    }
+    xhr.onreadystatechange = function () {
+        console.log("ready state :  ", xhr.readyState);
+        if (xhr.readyState === 4) {
+            console.log('status', xhr.status)
+            if (xhr.status === 200) {
+                let response = xhr.response;
+                console.log('response : ', response)
+                console.log('type of response : ', typeof (response));
 
 
-//     }
-// }
+                let datas = JSON.parse(response);
+                console.log('datas : ', datas)
+
+                let datacontainer = document.getElementById('data-container');
+                console.log('data container', datacontainer);
+
+                let rows = '';
+                for (let i = 0; i < datas.length; i++) {
+                    rows = rows + `
+                <tr>
+                <td>${datas[i].name}</td>
+                <td>${datas[i].username}</td>
+                <td>${datas[i].email}</td>
+                <td>${datas[i].website}</td>
+                <td><button onclick = "handleClick(${datas[i].id})">View</button></td>
+                </tr>
+
+                `
+                }
+                console.log(("rows", rows));
+
+                datacontainer.innerHTML = rows;
+            }
+        }
+    }
+    function handleClick(id) {
+        console.log("reached here");
+        console.log("id : ", id)
+        window.location.href = "dashboard.html"
+    }
+    function loaduserdata() {
+        console.log("sdfghjkl")
+
+
+    }
+}
 
 
 // {
@@ -731,7 +723,65 @@ console.log(result11) //false
 
 const regexpr12 = /[h?$]/i
 const result12 = regexpr12.test(str5);
-console.log('result12',result12)
+console.log('result12',result12);
+
+
+// 22--
+// 23==
+
+
+let str6 = "hello0"
+
+
+const regexpr23 = /L{2}o$/i; //'o' should be exactly after 2L's
+const result23 = regexpr23.test(str6);
+console.log("result23",result23) //false
+
+const regexpr24 = /L{2,4}o$/i;//o should be exactly after between 2 to 4 L's
+const result24 = regexpr24.test(str6);
+console.log('result24',result24);
+ 
+const regexpr25 = /hel{2,4}o$/i; // o should be exactly after between 2 to 4 L's and ends with O;
+const result25 = regexpr25.test(str6);
+console.log('result25',result25);//true
+
+const regexpr26 = /Hel{2,}o$/i //2 or more L is required
+const result26 = regexpr26.test(str6);
+console.log('result26 : ',result26) //true
+
+// \indicates escape character , used for mathcing any characters which has special meaning 
+
+const regexpr27 = /\d/i; //if there is a digit  it will be true
+const result27 = regexpr27.test(str6);
+console.log('result27',result27); //true
+
+const regexpr28 = /\D/i //if there is any non digits it will be true
+const result28 = regexpr28.test(str6);
+console.log('result28',result28);
+
+
+const regexpr29 = /./i; //if there is '.' or anything it will match
+const result29 = regexpr29.test(str6);
+console.log('result29',result29);
+
+const regexpr30 = /\./; // if there is any '.' in the string  it match else it will be false
+const result30 = regexpr30.test(str6);
+console.log('result30',result30); //false
+//1
+//Date validation
+
+let str7 = '23-12-2003'
+
+const regexprfordate = /^\d{1,2}-\d{1,2}-\d{4}$/i //string should start witth  1or 2 digits the =n after - 1 to 2 digits then after - string end with 4 digits
+const result31 = regexprfordate.test(str7);
+console.log('result31',result31);
+
+//2
+// | - indiactes or case 0 | 1 means either 0 or 1 can occur 
+const regexpfordate1 = /^([012]?\d|3[01])-([0]\d|[1][012])-(\d{4}$)$/i; // In the firsr group -  if first character is 0 or 1 or 2 then the second character can be any digits(0-9) or if the character
+
+
+
 
 
 
