@@ -781,6 +781,33 @@ console.log('result31',result31);
 const regexpfordate1 = /^([012]?\d|3[01])-([0]\d|[1][012])-(\d{4}$)$/i; // In the firsr group -  if first character is 0 or 1 or 2 then the second character can be any digits(0-9) or if the character
 
 
+// ^ and $can be only used in the start and end of a string and cannot be used in between strings to match , so we use lookaheads for giving starting and ending in between strings
+
+
+// (?=) = positive look ahead, A(?=B) > matches :a only if A is followed by B
+// (?!) = Negetive look ahead A(?!B) >matches :A only  if A is not  followed by B
+// (?<=) =positive look behind , If(?<=B)A >matches: A only if A is preceeded by B
+//(?<!B)A  matches :A only if a is not preceeded by B
+
+{
+let datestring  = '19-12-2023'
+let regex = /-\d+-/; //it will give result as "-12-" it will be array
+const result = datestring.match(regex);
+console.log('result',result)
+
+// so if we want to match exactly 12
+let regex1 = /(?<=-)\d+(?=-)/
+const result1 = datestring.match(regex1);
+console.log("result1",result1)
+
+
+// example for negetive lookahead and negetive lookbehind
+let phone = '(31)1234567890'
+let regex2 = /(?<!\()\d+(?!\))/
+let result3 = phone.match(regex2);
+console.log("phone",result3); 
+}
+
 
 
 
